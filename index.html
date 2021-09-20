@@ -24,9 +24,10 @@
 
         <div class="list_todos_wrapper">
             <ol class="todos">
-                <li v-for="(elm, index) in todos" :key="index" class="todo">
+                <li :class="classListTodo(index)" v-for="(elm, index) in todos" :key="index" class="todo">
+                    <i @click="todoDone(index)" :class=" ( elm.done == false )? 'far' : 'fas' " class="fa-circle"></i>
                     <span>{{elm.name}}</span>
-                    <i @click="removeTodo(index)" class="fas fa-times"></i>
+                    <i @click="removeTodo(index)" class="fas fa-times remove_task_icon"></i>
                 </li>
                 <li v-if="todos.length == 0" class="todo">--hai completato tutti i todo--</li>
             </ol>

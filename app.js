@@ -48,6 +48,22 @@ const app = new Vue({
 
             this.newTodoText = '';        
         },
+
+        todoDone: function(index) {
+            if ( this.todos[index].done == false ) {
+                this.todos[index].done = true;
+            } else {
+                this.todos[index].done = false;
+            }
+        },
+
+        classListTodo: function(index) {
+            if ( this.todos[index].done == false ) {
+                return null;
+            } else {
+                return 'done';
+            }
+        },
     },
     mounted: function () {
         document.addEventListener('keydown', (event) => {
