@@ -10,7 +10,7 @@ const app = new Vue({
             },
             {
                 id: 1,
-                name: "spazzare i pavomenti",
+                name: "spazzare i pavimenti",
                 done: false,
             },
             {

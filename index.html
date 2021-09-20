@@ -25,7 +25,7 @@
         <div class="list_todos_wrapper">
             <ol class="todos">
                 <li :class="classListTodo(index)" v-for="(elm, index) in todos" :key="index" class="todo">
-                    <i @click="todoDone(index)" :class=" ( elm.done == false )? 'far' : 'fas' " class="fa-circle"></i>
+                    <i @click="todoDone(index)" :class=" ( elm.done == false )? 'far fa-circle' : 'fas fa-check-circle' " class="check_todo_icon"></i>
                     <span>{{elm.name}}</span>
                     <i @click="removeTodo(index)" class="fas fa-times remove_task_icon"></i>
                 </li>
