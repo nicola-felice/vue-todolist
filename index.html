@@ -12,30 +12,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div id="root" class="container">
         <div class="logo_wrapper">
             <img class="logo" src="./img/logo.png" alt="logo">
         </div>
 
         <div class="new_todo_wrapper">
-            <input class="add_todo_input" type="text" placeholder="--aggiungi un To Do--">
-            <button class="new_todo_btn"><i class="fas fa-plus"></i></button>
+            <input v-model="newTodoText" class="add_todo_input" type="text" placeholder="--aggiungi un To Do--">
+            <button @click="addNewTodo()" class="new_todo_btn"><i class="fas fa-plus"></i></button>
         </div>
 
         <div class="list_todos_wrapper">
             <ol class="todos">
-                <li class="todo">
-                    <span>fare la spesa</span>
-                    <i class="fas fa-times"></i>
+                <li v-for="(elm, index) in todos" :key="index" class="todo">
+                    <span>{{elm.name}}</span>
+                    <i @click="removeTodo(index)" class="fas fa-times"></i>
                 </li>
-                <li class="todo">
-                    <span>fare la spesa</span>
-                    <i class="fas fa-times"></i>
-                </li>
-                <li class="todo">
-                    <span>fare la spesa</span>
-                    <i class="fas fa-times"></i>
-                </li>
+                <li v-if="todos.length == 0" class="todo">--hai completato tutti i todo--</li>
             </ol>
         </div>
     </div>
